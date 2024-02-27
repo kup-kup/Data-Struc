@@ -1,19 +1,32 @@
-from math import log2
+class Node:
+  def __init__(self, data=None, next=None):
+    self.data = data
+    self.next = next
 
-# b = 1
-# c = 0.5
+class LinkedList:
+  def __init__(self, head=None):
+    self.head = head
 
-# for i in range(20):
-#     b += c
-#     print(b)
-#     c = c / 2
+  def detect_cycle(self):
+    tortoise = self.head.next
+    hare = self.head.next.next
 
-# print(b ** 2)
+    while tortoise != hare:
+      if hare.next == None or hare.next.next == None:
+        return False
+      tortoise = tortoise.next
+      hare = hare.next.next
+    return True
 
-a = 0.1
-b = 0.01
-c = 0.001
+test = [2, 3, 6, 0, 4, 1, 5, 3]
 
-print(log2(a ** 2))
-print(log2(b ** 2))
-print(log2(c ** 2))
+ls = LinkedList(Node(3, Node(0, Node(2, Node(6, Node(5, Node(1, Node(3 , None))))))))
+
+temp = ls.head
+
+while temp.next != None:
+  temp = temp.next
+
+temp.next = ls.head.next
+
+print(ls.detect_cycle())
