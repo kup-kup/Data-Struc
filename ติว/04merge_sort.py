@@ -9,3 +9,6 @@ def merge_sort(list):
     left = merge_sort(left)
     right = merge_sort(right)
     return merge(left, right)
+
+def merge():
+    pass
