@@ -1,3 +1,5 @@
+from collections import deque
+
 class Tree:
   def __init__(self, root=None):
     self.root = root
@@ -36,6 +38,18 @@ def postorder(node):
     postorder(node.right)
     print(node.data, end = " ")
 
+def breadth(node):
+  q = deque([node])
+
+  while len(q) != 0:
+    curr = q.pop()
+    print(curr.data, end = " ")
+
+    if curr.left != None:
+      q.appendleft(curr.left)
+    if curr.right != None:
+      q.appendleft(curr.right)
+
 tree1 = Tree(TreeNode(1, TreeNode(2, TreeNode(3), TreeNode(4,)), TreeNode(5)))
 #      1
 #     / \
@@ -43,9 +57,18 @@ tree1 = Tree(TreeNode(1, TreeNode(2, TreeNode(3), TreeNode(4,)), TreeNode(5)))
 #   / \
 #  3   4
 
-tree2 = Tree(TreeNode(1, TreeNode(2, TreeNode(3), TreeNode(4, TreeNode(6, TreeNode(7)))), TreeNode(5)))
+tree2 = Tree(TreeNode(1, TreeNode(2, TreeNode(3), TreeNode(4, TreeNode(6))), TreeNode(5, TreeNode(7, TreeNode(8)))))
 
-print(height(tree1.root))
-print(height(tree2.root))
-print(count(tree1.root))
-print(count(tree2.root))
+#      1
+#     / \
+#    2   5
+#   / \  
+#  3   4 7
+#     6  8 
+
+# print(height(tree1.root))
+# print(height(tree2.root))
+# print(count(tree1.root))
+# print(count(tree2.root))
+
+breadth(tree2.root)
