@@ -7,11 +7,11 @@
 '''
 
 class Tree:
-  def __init__(self, root=None):
+  def __init__(self, root = None):
     self.root = root
 
 class TreeNode:
-  def __init__(self, data=None, left=None, right=None):
+  def __init__(self, data=None, left = None, right = None):
     self.data = data
     self.left = left
     self.right = right
@@ -88,6 +88,29 @@ tree2 = Tree(TreeNode(1, TreeNode(2, TreeNode(3), TreeNode(4, TreeNode(6, TreeNo
 #   /
 #  7
 
-print_tree(tree1.root)
+print_tree(tree1.root) #prints "1 3 2 4 5"
 print()
-print_tree(tree2.root)
+print_tree(tree2.root) #prints "1 3 4 6 7 2 5"
+
+'''
+ส่วนที่2
+'''
+tree3 = Tree(
+  TreeNode(
+    data = "A", right = TreeNode(
+      data = "B", left = TreeNode(
+        data = "C", right = TreeNode(
+          data = "D", left = TreeNode(
+            data = "E", right = TreeNode(
+              data = "F", left = TreeNode(
+                data = "G")
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+
+print()
+print_tree(tree3.root) #prints "B D F G E C A"
