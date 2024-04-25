@@ -72,4 +72,9 @@ def solution(graph):
         print(f"shortest_path: {start} to {node}")
         print(shortest_path(graph, start, node))
 
-solution(graph)
+#solution(graph)
+#print(shortest_path(graph, 0, 1))
+
+'''
+shortest_path พัง
+'''
