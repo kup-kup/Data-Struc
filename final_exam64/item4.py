@@ -25,7 +25,7 @@ def mst(graph):
 def shortest_path(graph, source, target):
     visited = {u: False for u in graph}
     distances = {u: math.inf for u in graph}
-    paths = {u: None for U in graph}
+    paths = {u: None for u in graph}
 
     heap = []
     heapq.heappush(heap, (0, source))
@@ -62,9 +62,14 @@ graph = {
 def solution(graph):
     num_node = len(graph)
     start = randrange(num_node)
+    print(f"start: {start}")
 
+    length = 0
     for node, list in graph.items():
         if node == start:
             continue
-
         
+        print(f"shortest_path: {start} to {node}")
+        print(shortest_path(graph, start, node))
+
+solution(graph)
