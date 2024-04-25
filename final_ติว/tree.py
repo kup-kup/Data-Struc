@@ -7,3 +7,5 @@ class TreeNode:
     self.data = data
     self.left = left
     self.right = right
+
+tree = Tree(TreeNode(5, right = TreeNode()))
