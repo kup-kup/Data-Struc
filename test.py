@@ -1,4 +1,4 @@
-from collections import deque
+from ds_library import *
 
-q = deque([3])
-print(q.pop())
+q = Queue(Node(5))
+print(q.dequeue())
